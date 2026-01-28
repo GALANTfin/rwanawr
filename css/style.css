@@ -574,3 +574,135 @@ footer {
     font-weight: 300;
     letter-spacing: 1px;
 }
+
+/* =========== Общие настройки для мобильных =========== */
+@media (max-width: 1024px) {
+    .header-top {
+        padding: 0 20px;
+        flex-direction: column;
+        height: auto;
+        gap: 5px;
+        font-size: 11px;
+    }
+
+    .header-main {
+        padding: 0 20px;
+        flex-direction: column;
+        height: auto;
+        gap: 15px;
+    }
+
+    .nav {
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-left: 0;
+        justify-content: center;
+    }
+
+    .hero-logo {
+        font-size: 48px;
+        letter-spacing: 4px;
+    }
+
+    .hero-btn {
+        padding: 12px 35px;
+        font-size: 13px;
+    }
+
+    .hinnasto-content, 
+    .palvelut-content, 
+    .tyot-content, 
+    .yhteystiedot-content {
+        padding: 30px 15px;
+    }
+
+    .hinnasto-text, .palvelut-text, .tyot-text, .footer-text {
+        font-size: 16px;
+        line-height: 1.8;
+    }
+
+    /* Контакты в правом нижнем углу на мобилке */
+    .hinnasto-contacts {
+        position: static;
+        bottom: auto;
+        right: auto;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 20px;
+    }
+}
+
+/* Мобильные телефоны до 768px */
+@media (max-width: 768px) {
+    .hero-logo {
+        font-size: 36px;
+    }
+
+    .hero-btn {
+        padding: 10px 25px;
+        font-size: 12px;
+    }
+
+    .hinnasto-text, .palvelut-text, .tyot-text, .footer-text {
+        font-size: 15px;
+    }
+
+    .nav a {
+        font-size: 14px;
+    }
+
+    .hinnasto-btn, .palvelut-btn, .tyot-btn {
+        padding: 12px 30px;
+        font-size: 14px;
+    }
+}
+
+/* Очень маленькие экраны до 480px */
+@media (max-width: 480px) {
+    .hero-logo {
+        font-size: 28px;
+    }
+
+    .hero-btn {
+        padding: 8px 20px;
+        font-size: 12px;
+    }
+
+    .hinnasto-text, .palvelut-text, .tyot-text, .footer-text {
+        font-size: 14px;
+    }
+
+    .nav {
+        gap: 8px;
+    }
+
+    .hinnasto-btn, .palvelut-btn, .tyot-btn {
+        padding: 8px 20px;
+        font-size: 13px;
+    }
+
+    .footer-text {
+        margin-left: 20px;
+        text-align: center;
+    }
+}
+
+/* =========== Карта адаптивная =========== */
+iframe {
+    width: 100% !important;
+    height: 400px; /* можно уменьшить на мобилке */
+}
+
+@media (max-width: 768px) {
+    iframe {
+        height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    iframe {
+        height: 250px;
+    }
+}
