@@ -13,70 +13,27 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
-      <script>
-document.addEventListener("DOMContentLoaded", function() {
+     <!-- Другой контент страницы (header, секции, footer) -->
 
-    // Настройки для каждой секции: кнопка, контент и колонки
-    const sections = [
-        {
-            btn: 'a[href="#palvelut"]',
-            contentSelector: ".palvelut-content",
-            columnsSelector: ".palvelut-column"
-        },
-        {
-            btn: 'a[href="#tyot"]',
-            contentSelector: ".tyot-content",
-            columnsSelector: ".tyot-column"
-        },
-        {
-            btn: 'a[href="#yhteystiedot"]',
-            contentSelector: ".yhteystiedot-content",
-            columnsSelector: ".yhteystiedot-map" // карта будет одной "колонкой"
-        }
-    ];
-
-    sections.forEach(section => {
-        const button = document.querySelector(section.btn);
-        const content = document.querySelector(section.contentSelector);
-        const columns = document.querySelectorAll(section.columnsSelector);
-
-        button.addEventListener("click", function(e) {
-            e.preventDefault();
-            const targetSection = document.querySelector(button.getAttribute("href"));
-
-            // плавный скролл к секции
-            targetSection.scrollIntoView({ behavior: "smooth" });
-
-            // добавляем класс animate перед запуском анимации
-            content.classList.add("animate");
-            columns.forEach(col => col.classList.add("animate"));
-
-            // запуск анимации через 100 мс
-            setTimeout(() => {
-                content.classList.add("show");
-                columns.forEach((col, i) => {
-                    setTimeout(() => col.classList.add("show"), i * 200);
-                });
-            }, 100);
-        });
-    });
-
-});
-
-          // Инициализация анимаций после полной загрузки страницы
+<!-- Вставляем в самый низ перед </body> -->
+<script>
 window.addEventListener('load', () => {
-  // Здесь твои функции анимации при клике на кнопки
   initScrollAnimations();
+  initButtonScrolls();
 });
 
+// Анимация появления блоков при скролле
 function initScrollAnimations() {
   const sections = document.querySelectorAll('section');
+
+  // Начальное состояние
   sections.forEach(section => {
     section.style.opacity = 0;
     section.style.transform = 'translateY(50px)';
   });
 
-  window.addEventListener('scroll', () => {
+  // Функция, которая проверяет видимые секции
+  function showSections() {
     const scrollPos = window.scrollY + window.innerHeight * 0.8;
     sections.forEach(section => {
       if (scrollPos > section.offsetTop) {
@@ -85,10 +42,38 @@ function initScrollAnimations() {
         section.style.transform = 'translateY(0)';
       }
     });
+  }
+
+  // Сразу отображаем все секции на десктопе
+  sections.forEach(section => {
+    section.style.opacity = 1;
+    section.style.transform = 'translateY(0)';
+  });
+
+  window.addEventListener('scroll', showSections);
+}
+
+// Плавная прокрутка по кнопкам
+function initButtonScrolls() {
+  const buttons = document.querySelectorAll('a[href^="#"]');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      const targetId = btn.getAttribute('href').substring(1);
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) {
+        window.scrollTo({
+          top: targetEl.offsetTop,
+          behavior: 'smooth'
+        });
+      }
+    });
   });
 }
 </script>
 
+</body>
+</html>
 
 <body>
 
