@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <title>RWANAWR</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font Awesome для иконок -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+      <script>
+document.addEventListener("DOMContentLoaded", function() {
+
+    // Настройки для каждой секции: кнопка, контент и колонки
+    const sections = [
+        {
+            btn: 'a[href="#palvelut"]',
+            contentSelector: ".palvelut-content",
+            columnsSelector: ".palvelut-column"
+        },
+        {
+            btn: 'a[href="#tyot"]',
+            contentSelector: ".tyot-content",
+            columnsSelector: ".tyot-column"
+        },
+        {
+            btn: 'a[href="#yhteystiedot"]',
+            contentSelector: ".yhteystiedot-content",
+            columnsSelector: ".yhteystiedot-map" // карта будет одной "колонкой"
+        }
+    ];
+
+    sections.forEach(section => {
+        const button = document.querySelector(section.btn);
+        const content = document.querySelector(section.contentSelector);
+        const columns = document.querySelectorAll(section.columnsSelector);
+
+        button.addEventListener("click", function(e) {
+            e.preventDefault();
+            const targetSection = document.querySelector(button.getAttribute("href"));
+
+            // плавный скролл к секции
+            targetSection.scrollIntoView({ behavior: "smooth" });
+
+            // добавляем класс animate перед запуском анимации
+            content.classList.add("animate");
+            columns.forEach(col => col.classList.add("animate"));
+
+            // запуск анимации через 100 мс
+            setTimeout(() => {
+                content.classList.add("show");
+                columns.forEach((col, i) => {
+                    setTimeout(() => col.classList.add("show"), i * 200);
+                });
+            }, 100);
+        });
+    });
+
+});
+</script>
+
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="header">
+
+    <!-- верхняя полоска -->
+    <div class="header-top">
+        <div>
+            <i class="fa-solid fa-phone"></i> 045 319 58 00
+        </div>
+        <div>
+            <i class="fa-solid fa-envelope"></i> gavrilov.matvei@yahoo.com
+        </div>
+    </div>
+
+    <!-- основная часть -->
+    <div class="header-main">
+        <img src="images/logo.jpg" alt="RWANAWR logo" class="logo">
+
+        <nav class="nav">
+            <a href="#etusivu">Etusivu</a>
+            <span>•</span>
+            <a href="#palvelut">Palvelut</a>
+            <span>•</span>
+            <a href="#tyot">Työt</a>
+            <span>•</span>
+            <a href="#yhteystiedot">Yhteystiedot</a>
+        </nav>
+    </div>
+
+</header>
+
+<!-- ================= HINNASTO ================= -->
+<section class="hinnasto" id="etusivu">
+    <div class="hinnasto-overlay"></div> <!-- затемнение фона -->
+    <div class="hinnasto-content">
+        <p class="hinnasto-text">
+            <h2>Aukioloajat:</h2><br>
+            Maanantai – Perjantai: 11:00 – 19:00<br>
+            Lauantai: Suljettu<br>
+            Sunnuntai: Suljettu<br>
+            Vanha Porvoontie 256 D HALLI 8, 01380 Vantaa
+        </p>
+
+        <div class="hinnasto-button-wrapper">
+          <a href="#yhteystiedot" class="hinnasto-btn">Ota yhteyttä</a>
+        </div>
+    </div>
+</section>
+
+
+<!-- ================= PALVELUT ================= -->
+<section class="palvelut" id="palvelut">
+    <div class="palvelut-overlay"></div> <!-- затемнение фона -->
+    <div class="palvelut-content show">
+        <h2>PALVELUT</h2>
+        <p class="palvelut-intro">
+            Tervetuloa RWANAWRin autohuoltoon! Me tarjoamme monipuolisia ja korkealaatuisia huolto- ja korjauspalveluita kaikkiin automerkkeihin, aina pienistä henkilöautoista suuriin SUV- ja hyötyajoneuvoihin. Meidän tavoitteemme on pitää ajoneuvosi turvallisena, luotettavana ja parhaassa kunnossa – ystävällisesti ja asiantuntevasti. Sovimme kaikki työt aina asiakkaan aikataulun ja tarpeiden mukaan, jotta saat juuri sen palvelun, mitä tarvitset.
+        </p>
+
+        <div class="palvelut-columns">
+            <div class="palvelut-column">
+                <h3>Huoltopalvelut</h3>
+                <ul>
+                    <li>Määräaikaishuollot ja öljynvaihdot</li>
+                    <li>Moottori- ja vaihteistohuolto</li>
+                    <li>Jarrujen ja jousituksen tarkastus</li>
+                    <li>OBD- ja vikakooditarkastukset</li>
+                    <li>Sähköjärjestelmien diagnostiikka</li>
+                </ul>
+            </div>
+            <div class="palvelut-column">
+                <h3>Korjaus- ja erikoistyöt</h3>
+                <ul>
+                    <li>Ruostevaurioiden ja vaurioiden hitsaus</li>
+                    <li>Pienet ja suuret korjaukset</li>
+                    <li>Auton sisä- ja ulkopintojen kunnostus</li>
+                    <li>Renkaiden vaihto, asennus ja tasapainotus</li>
+                    <li>Rengashotelli</li>
+                </ul>
+            </div>
+            <div class="palvelut-column">
+                <h3>Lisäpalvelut</h3>
+                <ul>
+                    <li>Auton sisä- ja ulkopesut, vahaus ja pinnoitus</li>
+                    <li>Valojen ja lamppujen vaihdot, LED-päivitykset</li>
+                    <li>Sijaisauton järjestäminen</li>
+                    <li>Trailerin vuokraus</li>
+                </ul>
+            </div>
+        </div>
+
+        <p class="palvelut-footer">
+            Me RWANAWRilla pidämme huolen, että autosi saa aina parasta mahdollista huoltoa. Meidän ammattilaisemme tuntevat jokaisen auton yksityiskohdat ja osaavat ratkaista ongelmat nopeasti ja tehokkaasti. Olitpa sitten tulossa nopealle tarkastukselle tai isompaan huoltoon, me olemme täällä auttamassa sinua ja ajoneuvoasi!
+        </p>
+    </div>
+</section>
+
+<!-- ================= TYÖT ================= -->
+<section class="tyot" id="tyot">
+    <div class="tyot-overlay"></div> <!-- затемнение фона -->
+    <div class="tyot-content">
+        <h2>TYÖT</h2>
+
+        <div class="tyot-columns">
+
+            <div class="tyot-column">
+                <h3>1️⃣ Sähkö ja elektroniset järjestelmät</h3>
+                <ul>
+                    <li>Laturin ja startin vaihto</li>
+                    <li>Polttimoiden ja valojen vaihto, LED-päivitykset</li>
+                    <li>Vikakoodien lukeminen ja nollaus</li>
+                    <li>ABS-antureiden tarkistus</li>
+                    <li>Äänentoistolaitteiden ja navigaation asennus</li>
+                    <li>Airbag-korjaukset</li>
+                    <li>Vetokoukun ja peräkärryjen sähköasennukset</li>
+                </ul>
+            </div>
+
+            <div class="tyot-column">
+                <h3>2️⃣ Jarrut ja turvajärjestelmät</h3>
+                <ul>
+                    <li>Jarrulevyjen ja -palojen vaihto</li>
+                    <li>Jarrusatulat ja rumpujarrut</li>
+                    <li>Jarruletkujen ja -putkien vaihto</li>
+                    <li>Käsijarrun tarkastus</li>
+                    <li>Turvavarusteiden ja turvavöiden tarkistus</li>
+                </ul>
+            </div>
+
+            <div class="tyot-column">
+                <h3>3️⃣ Moottori ja voimansiirto</h3>
+                <ul>
+                    <li>Öljyn- ja suodattimen vaihto</li>
+                    <li>Jakopään ja hihnojen vaihto</li>
+                    <li>Sytytystulpat, johdot ja anturit</li>
+                    <li>Moottorin ja vaihdelaatikon huolto ja korjaus</li>
+                    <li>Kytkin, vetoakselit, nivelet ja suojakumit</li>
+                    <li>Käyntihäiriöiden selvitys</li>
+                </ul>
+            </div>
+
+            <div class="tyot-column">
+                <h3>4️⃣ Alusta ja lisävarusteet</h3>
+                <ul>
+                    <li>Iskunvaimentimet ja jouset</li>
+                    <li>Pallonivelet ja raidetangon päät</li>
+                    <li>Tukivarret ja puslat</li>
+                    <li>Lisävalojen ja takasumuvalojen asennus</li>
+                    <li>Tuning-asennukset</li>
+                    <li>Pakoputkiston huolto ja katalysaattorin vaihto</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ================= YHTEYSTIEDOT ================= -->
+<section class="yhteystiedot" id="yhteystiedot">
+    <div class="yhteystiedot-overlay"></div>
+    <div class="yhteystiedot-content">
+
+        <div class="yhteystiedot-text">
+            <h2>YHTEYSTIEDOT</h2>
+            <p class="company">
+                RWANAWR Oy<br>
+                Vanha Porvoontie 256 D, HALLI 7-9<br>
+                01380 Vantaa
+            </p>
+            <p class="contact">
+                Puhelinnumero: <a href="tel:+358453195800"> 045 319 58 00</a><br>
+                Sähköposti: <a href="mailto:gavrilov.matvei@yahoo.com">gavrilov.matvei@yahoo.com</a><br>
+                Y-Tunnus: 3272412-6
+            </p>
+        </div>
+
+        <div class="yhteystiedot-map">
+            <!-- Встроенная карта Google Maps -->
+            <div id="map" style="width:100%;height:100%;border-radius:12px;"></div>
+              <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+              <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+              <script>
+                const map = L.map('map').setView([60.2972, 25.0932], 16);
+
+                L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+                  attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>',
+                  subdomains: 'abcd',
+                  maxZoom: 19
+                }).addTo(map);
+
+                L.marker([60.2972, 25.0932]).addTo(map)
+                  .bindPopup('RWANAWR Oy')
+                  .openPopup();
+              </script>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+<footer>
+    <div class="footer-text">
+        <strong>
+            Tarjoamme nopeaa ja asiantuntevaa huoltoa, jotta autosi pysyy aina parhaassa kunnossa. Meillä voit luottaa siihen, että kaikki työ tehdään huolella ja ammattitaidolla.
+        </strong><br>
+        <span class="thin">RWANAWR</span>
+    </div>
+</footer>
+
+</body>
+</html>
