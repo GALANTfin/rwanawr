@@ -62,6 +62,31 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
 });
+
+          // Инициализация анимаций после полной загрузки страницы
+window.addEventListener('load', () => {
+  // Здесь твои функции анимации при клике на кнопки
+  initScrollAnimations();
+});
+
+function initScrollAnimations() {
+  const sections = document.querySelectorAll('section');
+  sections.forEach(section => {
+    section.style.opacity = 0;
+    section.style.transform = 'translateY(50px)';
+  });
+
+  window.addEventListener('scroll', () => {
+    const scrollPos = window.scrollY + window.innerHeight * 0.8;
+    sections.forEach(section => {
+      if (scrollPos > section.offsetTop) {
+        section.style.transition = 'all 0.7s ease-out';
+        section.style.opacity = 1;
+        section.style.transform = 'translateY(0)';
+      }
+    });
+  });
+}
 </script>
 
 
