@@ -586,9 +586,23 @@ section {
 }
 
 .hero, .hinnasto, .palvelut, .tyot, .yhteystiedot {
-    height: auto;
-    padding: 60px 20px;
+  width: 100%;
+  max-width: 100vw;
+  background-size: cover;
+  background-position: center;
+  padding: 60px 15px;
+  box-sizing: border-box;
 }
+
+.hinnasto-contacts, .palvelut-contacts, .tyot-contacts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
 
 /* Контент всех блоков */
 .hero-content,
@@ -752,11 +766,12 @@ iframe {
 
 /* Общие блоки с полупрозрачным фоном (как у Palvelut/Tyot) */
 .column-block {
-    background: rgba(0,0,0,0.45);
-    padding: 20px;
-    border-radius: 12px;
-    margin: 10px;
-    color: #fff;
+  background: rgba(0,0,0,0.45);
+  padding: 20px;
+  border-radius: 12px;
+  margin: 10px; /* положительное значение */
+  color: #fff;
+  box-sizing: border-box; /* обязательно */
 }
 
 /* Контактные кнопки */
@@ -868,4 +883,19 @@ iframe {
   .hinnasto-content h2 { font-size: 20px; }
   .hinnasto-content p { font-size: 14px; }
   .contact-item { font-size: 14px; padding: 10px 15px; }
+}
+
+/* Принудительно убрать лишнюю ширину */
+html, body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+/* Все секции */
+section {
+  width: 100%;
+  max-width: 100vw; /* важно */
+  box-sizing: border-box;
 }
