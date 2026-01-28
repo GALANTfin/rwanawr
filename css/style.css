@@ -153,6 +153,42 @@ body {
     background: linear-gradient(135deg, #ff3d00, #c9002b);
 }
 
+.hinnasto-contacts {
+    position: absolute;
+    bottom: 40px;   /* отступ от низа */
+    right: 40px;    /* отступ от правого края */
+    display: flex;
+    flex-direction: column;
+    gap: 12px;      /* расстояние между элементами */
+    z-index: 3;     /* выше текста и фона */
+}
+
+.contact-item {
+    display: inline-block;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+    background: rgba(255,255,255,0.9);
+    color: #000;
+}
+
+.map-btn {
+    background: linear-gradient(135deg, #ff7a18, #af002d);
+    font-weight: 700;
+}
+
+.map-btn:hover {
+    background: linear-gradient(135deg, #ff3d00, #c9002b);
+    transform: scale(1.05);
+}
 
 
 
