@@ -786,3 +786,86 @@ iframe {
     background: linear-gradient(135deg, #ff3d00, #c9002b);
     transform: scale(1.05);
 }
+
+/* Hinnasto блок */
+.hinnasto {
+  width: 100%;
+  background: url("../images/hinnasto-background.jpg") center / cover no-repeat;
+  padding: 80px 20px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hinnasto-content {
+  text-align: center;
+  max-width: 800px;
+  width: 100%;
+  color: #fff;
+}
+
+.hinnasto-content h2 {
+  font-size: 32px;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.hinnasto-content p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+/* Контакты */
+.hinnasto-contacts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.contact-item {
+  display: inline-block;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+  background: rgba(255,255,255,0.9);
+  color: #000;
+}
+
+.map-btn {
+  background: linear-gradient(135deg, #ff7a18, #af002d);
+  font-weight: 700;
+}
+
+.map-btn:hover {
+  background: linear-gradient(135deg, #ff3d00, #c9002b);
+  transform: scale(1.05);
+}
+
+/* ================= АДАПТИВ ================= */
+@media (max-width: 1024px) {
+  .hinnasto-content h2 { font-size: 28px; }
+  .hinnasto-content p { font-size: 16px; }
+}
+
+@media (max-width: 768px) {
+  .hinnasto-content h2 { font-size: 24px; }
+  .hinnasto-content p { font-size: 15px; }
+  .hinnasto-contacts { gap: 10px; }
+}
+
+@media (max-width: 480px) {
+  .hinnasto-content h2 { font-size: 20px; }
+  .hinnasto-content p { font-size: 14px; }
+  .contact-item { font-size: 14px; padding: 10px 15px; }
+}
